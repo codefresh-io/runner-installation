@@ -11,7 +11,7 @@ data:
 
    echo codefresh auth create-context $CF_ARG_KUBE_CONTEXT_NAME --api-key $CODEFRESH_TOKEN --kube-namespace $CF_ARG_KUBE_NAMESPACE --url $CF_URL
    codefresh auth create-context $CF_ARG_KUBE_CONTEXT_NAME --api-key $CODEFRESH_TOKEN --kube-namespace $CF_ARG_KUBE_NAMESPACE --url $CF_URL
-   echo codefresh runner init --y --exec-demo-pipeline false --set-default-runtime true --name $CF_AGENT_NAME --url $CF_URL --skip-cluster-test yes --verbose
-   codefresh runner init --y --exec-demo-pipeline false --set-default-runtime true --name $CF_AGENT_NAME --url $CF_URL --skip-cluster-test yes --verbose
+   echo codefresh runner init --y {{ if .Values.env.proxy }}--env-vars NO_PROXY={{ .Values.env.proxy.NO_PROXY | quote }}{{ end}} --exec-demo-pipeline false --set-default-runtime true --name $CF_AGENT_NAME --url $CF_URL --skip-cluster-test yes --verbose
+   codefresh runner init --y {{ if .Values.env.proxy }}--env-vars NO_PROXY={{ .Values.env.proxy.NO_PROXY | quote }}{{ end}} --exec-demo-pipeline false --set-default-runtime true --name $CF_AGENT_NAME --url $CF_URL --skip-cluster-test yes --verbose
 
    echo "finish"

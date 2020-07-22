@@ -11,7 +11,7 @@ data:
 
    echo codefresh auth create-context $CF_ARG_KUBE_CONTEXT_NAME --api-key $CODEFRESH_TOKEN --kube-namespace $CF_ARG_KUBE_NAMESPACE --url $CF_URL
    codefresh auth create-context $CF_ARG_KUBE_CONTEXT_NAME --api-key $CODEFRESH_TOKEN --kube-namespace $CF_ARG_KUBE_NAMESPACE --url $CF_URL
-   echo codefresh runner upgrade --y --agent-name $CF_AGENT_NAME --kube-context-name $CF_ARG_KUBE_CONTEXT_NAME --url $CF_URL --verbose
-   codefresh runner upgrade --y --agent-name $CF_AGENT_NAME --kube-context-name $CF_ARG_KUBE_CONTEXT_NAME --url $CF_URL --verbose
+   echo codefresh runner upgrade --y {{ if .Values.env.proxy }}--env-vars NO_PROXY={{ .Values.env.proxy.NO_PROXY | quote }}{{ end}} --agent-name $CF_AGENT_NAME --kube-context-name $CF_ARG_KUBE_CONTEXT_NAME --url $CF_URL --verbose
+   codefresh runner upgrade --y {{ if .Values.env.proxy }}--env-vars NO_PROXY={{ .Values.env.proxy.NO_PROXY | quote }}{{ end}} --agent-name $CF_AGENT_NAME --kube-context-name $CF_ARG_KUBE_CONTEXT_NAME --url $CF_URL --verbose
 
    echo "Finish"
