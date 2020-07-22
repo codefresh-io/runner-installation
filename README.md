@@ -17,7 +17,7 @@ This helm chart support both Helm2 and Helm3.
 ## Installation
 1. Edit the file `values.yaml`. VERY IMPORTANT!!!
 
-`helm install --namespace <NAMESPACE> --timeout 1500 <RELEASE-NAME> runner-installtion`
+`helm install --namespace <NAMESPACE> --timeout 1500 <RELEASE-NAME> runner-installation`
 
 ## values.yaml parameters - all fields are MANDATORY
 |                      |Description                                 |Default                 |
