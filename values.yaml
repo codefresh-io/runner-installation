@@ -20,9 +20,9 @@ serviceAccount:
 
 env:
   codefreshToken: <YOUR_TOKEN>
-  codefreshTokenSecret:
-    name: codefresh-secrets
-    key: token
+  # codefreshTokenSecret:
+  #   name: codefresh-secrets
+  #   key: token
 
   codefreshAgentName: "defaultAgent"
 

@@ -19,16 +19,19 @@ This helm chart support both Helm2 and Helm3.
 
 1. Create namespace `kubectl create ns <NAMESPACE>`
 
+1. (Optional) If using k8s secrets for your token, create a secret using: `kubectl create secret generic codefresh-secrets --from-literal=token=<TOKEN_ID_YOU_GENERATED> -n <NAMESPACE>` or follow [steps from the kubernetes documentation](https://kubernetes.io/docs/concepts/configuration/secret/#creating-a-secret)
+
 1. Run helm installation: `helm install --namespace <NAMESPACE> --timeout 1500s <RELEASE-NAME> .`
 
 ## values.yaml parameters - all fields are MANDATORY
-|                      |Description                                 |Default                 |
-|----------------------|--------------------------------------------|------------------------|
-|env.codefreshToken    |"Codefresh API Token."                      |<TOKEN_ID_YOU_GENERATED>|
-|env.codefreshAgentName|"Codefresh agent name."                     |"defaultAgent"          |
-|env.codefreshURL      |"Codefresh custom url, for on-prem install".|"https://g.codefresh.io"|
-|image.repository      |"The codefresh-cli image path".             |codefresh/cli           |
-|image.imagePullSecrets|"list of kubernetes pull images secrets     | []  (empty list)       |
+|                            |Description                                 |Default                 |
+|----------------------------|--------------------------------------------|------------------------|
+|env.codefreshToken          |"Codefresh API Token."                      |<TOKEN_ID_YOU_GENERATED>|
+|env.codefreshTokenSecret    |"Codefresh API Token, secret references"    |                        |
+|env.codefreshAgentName      |"Codefresh agent name."                     |"defaultAgent"          |
+|env.codefreshURL            |"Codefresh custom url, for on-prem install".|"https://g.codefresh.io"|
+|image.repository            |"The codefresh-cli image path".             |codefresh/cli           |
+|image.imagePullSecrets      |"list of kubernetes pull images secrets     | []  (empty list)       |
 
 
 
