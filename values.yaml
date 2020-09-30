@@ -20,6 +20,10 @@ serviceAccount:
 
 env:
   codefreshToken: <YOUR_TOKEN>
+  # codefreshTokenSecret:
+  #   name: codefresh-secrets
+  #   key: token
+
   codefreshAgentName: "defaultAgent"
 
   # Mandatory modfication for on-prem installation

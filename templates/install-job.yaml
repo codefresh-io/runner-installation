@@ -23,7 +23,14 @@ spec:
           {{- end}}
           {{- end}}
           - name: CODEFRESH_TOKEN
+          {{- if .Values.env.codefreshTokenSecret }}
+            valueFrom:
+              secretKeyRef:
+                name: {{ required "Require a secret name that contains the codefresh token" .Values.env.codefreshTokenSecret.name }}
+                key: {{ required "Require a secret key that contains the codefresh token" .Values.env.codefreshTokenSecret.key }}
+          {{- else }}
             value: {{ .Values.env.codefreshToken }}
+          {{- end }}
           - name: CF_ARG_KUBE_NAMESPACE
             value: {{ include "codefresh-runner.namespace" . }}
           - name: CF_ARG_KUBE_CONTEXT_NAME
