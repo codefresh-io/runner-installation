@@ -2,7 +2,7 @@
 ###                    Installer Values              ###
 ########################################################
 installer:
-  image: codefresh/cli
+  image: quay.io/codefresh/cli
   imagePullPolicy: "Always"
   imagePullSecrets: []
 
@@ -104,7 +104,7 @@ Token:
 ###############################################
 ### Runner image: controls the runner pod image
 # Image: 
-#   Name: codefresh/venona
+#   Name: quay.io/codefresh/venona
 #   Tag: 1.4.16 # default s.Version.Current.Version,
 
 ### Control runner pod resources
@@ -161,7 +161,7 @@ Token:
 #   AwsSecretAccessKey:
 #   Encrypted:  # encrypt volume, default is false
 #   VolumeProvisioner:
-#     Image: codefresh/dind-volume-provisioner:v23
+#     Image: quay.io/codefresh/dind-volume-provisioner:v23
 #     NodeSelector: 
 #     Tolerations:
 #     resources:
@@ -221,7 +221,7 @@ Token:
 ################################################
 # Monitor:
 #   Image:
-#     Name: codefresh/agent
+#     Name: quay.io/codefresh/agent
 #     Tag:  stable
 #   resources:  
 #     limits:
@@ -245,7 +245,7 @@ Token:
 ########################################################
 # AppProxy:
 #   Image:
-#     Name: codefresh/cf-app-proxy
+#     Name: quay.io/codefresh/cf-app-proxy
 #     Tag: latest # default is latest
 #   resources:
 #     limits:
